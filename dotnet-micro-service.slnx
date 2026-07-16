@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/Build/">
+    <File Path="README.md" />
+  </Folder>
   <Folder Name="/src/" />
   <Folder Name="/src/Catalog/">
     <Project Path="src/Catalog/Catalog.Api/Catalog.Api.csproj" />
