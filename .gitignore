@@ -7,6 +7,7 @@
 *.user
 *.userosscache
 *.sln.docstates
+*.env
 
 # Build results
 [Bb]in/
@@ -208,3 +209,6 @@ FakesAssemblies/
 
 # JetBrains Rider
 *.sln.iml
+
+
+notes/*
