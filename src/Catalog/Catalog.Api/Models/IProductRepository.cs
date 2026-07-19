@@ -6,4 +6,12 @@ namespace Catalog.Api.Models;
 public interface IProductRepository : IRead<Product>
 {
     Task<IEnumerable<Product>> GetFiltered(FilterRequest filterRequest);
+
+    Task<Product> Add(Product product);
+
+    void Delete(Product product);
+
+    Task<Product?> ReadTracked(Guid id);
+
+    Task SaveChangeAsync();
 }
