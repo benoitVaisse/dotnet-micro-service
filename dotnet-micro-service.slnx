@@ -11,7 +11,6 @@
   </Folder>
   <Folder Name="/tests/" />
   <Folder Name="/tests/Catalog/">
-    <Project Path="tests/Catalog.FunctionalTests/Catalog.FunctionalTests.csproj" Id="34c3031b-c7ce-4c22-b4db-40646df10dce" />
     <Project Path="tests/Catalog.IntegrationsTests/Catalog.IntegrationsTests.csproj" Id="ed2ecdc0-c0c0-48b4-bf21-06f7f1a7b453" />
   </Folder>
 </Solution>
