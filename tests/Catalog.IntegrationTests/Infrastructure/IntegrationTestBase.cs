@@ -1,7 +1,7 @@
 ﻿using Catalog.Api.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace Catalog.IntegrationsTests.Infrastructure;
+namespace Catalog.IntegrationTests.Infrastructure;
 
 public abstract class IntegrationTestBase
 {

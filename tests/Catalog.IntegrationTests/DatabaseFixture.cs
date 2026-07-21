@@ -12,7 +12,7 @@ using Testcontainers.PostgreSql;
 //
 // Dropping the namespace entirely (global namespace) would cover the whole assembly, which
 // is the safer option if tests are ever added outside this namespace root.
-namespace Catalog.IntegrationsTests;
+namespace Catalog.IntegrationTests;
 
 [SetUpFixture]
 public class DatabaseFixture

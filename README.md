@@ -32,6 +32,7 @@ This project intentionally combines several patterns commonly expected in a prod
 - **gRPC** — synchronous internal service-to-service calls
 - **YARP** (or Ocelot) — API Gateway
 - **Docker** & **Docker Compose** — local orchestration
+- **NUnit** + **Testcontainers** — integration tests against a real PostgreSQL container, not an in-memory substitute
 
 ---
 
@@ -77,6 +78,14 @@ The system is split into independent services, each with its own database, its o
 | **Payment** | Worker / API | Processes payments, drives the saga | Saga, compensation, idempotency |
 | **Notification** | Worker Service | Sends emails in reaction to events | Pure async consumer, decoupling |
 
+### Design decisions
+
+Non-obvious trade-offs are recorded as ADRs, so the reasoning survives the commit that implements them.
+
+| ADR | Decision |
+|---|---|
+| [0001](docs/adr-0001-case-sensitive-product-search.md) | Product search stays case-sensitive — PostgreSQL `LIKE` vs. SQL Server's case-insensitive default collation, and why `citext` and non-deterministic collations were ruled out |
+
 ---
 
 ## Roadmap
@@ -117,9 +126,13 @@ dotnet run --project src/Catalog/Catalog.Api
 dotnet-micro-service/
 ├── docker-compose.yml
 ├── README.md
-└── src/
-    └── Catalog/
-        └── Catalog.Api/
+├── docs/                          # Architecture Decision Records
+├── src/
+│   └── Catalog/
+│       └── Catalog.Api/
+└── tests/
+    ├── Catalog.IntegrationsTests/  # NUnit + Testcontainers (real PostgreSQL)
+    └── Catalog.ModelBuilder/       # test data builders
 ```
 
 *(This structure will expand as new services are added.)*

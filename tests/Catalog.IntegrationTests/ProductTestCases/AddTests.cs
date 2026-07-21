@@ -1,28 +1,20 @@
 ﻿using Catalog.Api.Data;
 using Catalog.Api.Models;
-using Catalog.IntegrationsTests.Infrastructure;
+using Catalog.IntegrationTests.Infrastructure;
+using Catalog.ModelBuilder.Model;
 using Microsoft.EntityFrameworkCore;
 
-namespace Catalog.IntegrationsTests.ProductTestCases;
+namespace Catalog.IntegrationTests.ProductTestCases;
 
 public class AddTests : IntegrationTestBase
 {
-    public AddTests()
-    {
-
-    }
 
     [Test]
     public async Task Should_Add_Product()
     {
         // Arrange
-        Product product = new()
-        {
-            Id = Guid.NewGuid(),
-            Name = "Clavier mécanique",
-            Price = 49.99m,
-            AvailableStock = 10
-        };
+        Product product = new ProductBuilder().Build();
+
         ProductRepository repository = new(Context);
 
         // Act
@@ -34,7 +26,7 @@ public class AddTests : IntegrationTestBase
             .FirstOrDefaultAsync(p => p.Id == product.Id);
 
         Assert.That(saved, Is.Not.Null);
-        Assert.That(saved!.Name, Is.EqualTo("Clavier mécanique"));
-        Assert.That(saved.Price, Is.EqualTo(49.99m));
+        Assert.That(saved!.Name, Is.EqualTo(product.Name));
+        Assert.That(saved.Price, Is.EqualTo(product.Price));
     }
 }

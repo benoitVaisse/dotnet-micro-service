@@ -11,6 +11,7 @@
   </Folder>
   <Folder Name="/tests/" />
   <Folder Name="/tests/Catalog/">
-    <Project Path="tests/Catalog.IntegrationsTests/Catalog.IntegrationsTests.csproj" Id="ed2ecdc0-c0c0-48b4-bf21-06f7f1a7b453" />
+    <Project Path="tests/Catalog.IntegrationTests/Catalog.IntegrationTests.csproj" />
+    <Project Path="tests/Catalog.ModelBuilder/Catalog.ModelBuilder.csproj" Id="16b0016e-03ae-49ee-b13d-0eeef38115b1" />
   </Folder>
 </Solution>
