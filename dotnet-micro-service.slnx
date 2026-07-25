@@ -10,6 +10,12 @@
     <Project Path="src/Catalog/Catalog.Api/Catalog.Api.csproj" />
     <Project Path="src/Catalog/Catalog.GRPC/Catalog.GRPC.csproj" Id="6b73286b-3712-44cb-9b32-67e074409a3a" />
   </Folder>
+  <Folder Name="/src/Ordering/">
+    <Project Path="src/Ordering/Ordering.Api/Ordering.Api.csproj" Id="435499eb-59cb-4ba7-a593-f75140992afa" />
+    <Project Path="src/Ordering/Ordering.Application/Ordering.Application.csproj" Id="454461a9-0a13-4c03-b9ff-9ecbb88a9f92" />
+    <Project Path="src/Ordering/Ordering.Domain/Ordering.Domain.csproj" Id="198bfb26-c4b0-4449-a30e-a8952085b450" />
+    <Project Path="src/Ordering/Ordering.Infrastructure/Ordering.Infrastructure.csproj" Id="00cae669-3659-4996-9f73-06cfa358cd40" />
+  </Folder>
   <Folder Name="/tests/" />
   <Folder Name="/tests/Catalog/">
     <Project Path="tests/Catalog.IntegrationTests/Catalog.IntegrationTests.csproj" />
