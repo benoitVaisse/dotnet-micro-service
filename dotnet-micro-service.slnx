@@ -8,6 +8,7 @@
   <Folder Name="/src/" />
   <Folder Name="/src/Catalog/">
     <Project Path="src/Catalog/Catalog.Api/Catalog.Api.csproj" />
+    <Project Path="src/Catalog/Catalog.GRPC/Catalog.GRPC.csproj" Id="6b73286b-3712-44cb-9b32-67e074409a3a" />
   </Folder>
   <Folder Name="/tests/" />
   <Folder Name="/tests/Catalog/">

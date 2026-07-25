@@ -20,7 +20,8 @@ public class ProductController : ControllerBase
     }
 
     [HttpPost]
-    [ProducesResponseType<Product>(StatusCodes.Status200OK)]
+    [ProducesResponseType<Product>(StatusCodes.Status201Created)]
+    [ProducesResponseType<Product>(StatusCodes.Status400BadRequest)]
     public async Task<CreatedAtRoute<Product>> Create(
             [FromBody] Product request,
             [FromServices] IProductRepository productRepository

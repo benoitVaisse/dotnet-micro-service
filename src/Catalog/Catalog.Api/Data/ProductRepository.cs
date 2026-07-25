@@ -6,6 +6,10 @@ using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace Catalog.Api.Data;
 
+/// <summary>
+/// <inheritdoc cref="IProductRepository"/>
+/// </summary>
+/// <param name="context"></param>
 public class ProductRepository(
         CatalogDbContext context
     ) : IProductRepository

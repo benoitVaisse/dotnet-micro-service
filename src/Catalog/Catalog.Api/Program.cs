@@ -1,6 +1,7 @@
 
 using Catalog.Api.Data;
 using Catalog.Api.Models;
+using Catalog.Api.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace Catalog.Api;
@@ -22,7 +23,7 @@ public class Program
 
         // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
         builder.Services.AddOpenApi();
-
+        builder.Services.AddGrpc();
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
@@ -35,6 +36,11 @@ public class Program
 
         app.UseAuthorization();
 
+        #region GRPC Service
+
+        app.MapGrpcService<ProductGrpcService>();
+
+        #endregion
 
         app.MapControllers();
 

@@ -1,0 +1,20 @@
+// version
+syntax = "proto3";
+
+option csharp_namespace = "Catalog.Grpc";
+
+package catalog;
+
+service ProductProtoService {
+  rpc GetProductAvailability (GetProductAvailabilityRequest) returns (GetProductAvailabilityResponse);
+}
+
+message GetProductAvailabilityRequest {
+  string product_id = 1;
+}
+
+message GetProductAvailabilityResponse {
+  bool exists = 1;
+  int32 available_stock = 2;
+  string price = 3;
+}
