@@ -1,5 +1,5 @@
 ﻿namespace Ordering.Domain.Shared;
 
-public interface IAggregateRoot
+public interface IDomainEvent
 {
 }

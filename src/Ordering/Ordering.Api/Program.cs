@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Authentication.Negotiate;
+using Ordering.Infrastructure;
 
 namespace Ordering.Api
 {
@@ -16,6 +17,8 @@ namespace Ordering.Api
 
             builder.Services.AddAuthentication(NegotiateDefaults.AuthenticationScheme)
                 .AddNegotiate();
+
+            builder.Services.AddOrderingContext(builder.Configuration);
 
             builder.Services.AddAuthorization(options =>
             {
