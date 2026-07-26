@@ -1,4 +1,5 @@
-﻿using Ordering.Domain.Shared;
+﻿using Ordering.Domain.Models.Client;
+using Ordering.Domain.Shared;
 
 namespace Ordering.Domain.Models.Order;
 
@@ -10,6 +11,12 @@ public class Order : AggregateEntity
 
     public string? Description { get; private set; }
 
+    public Address Address { get; private set; }
+
+    public Guid? BuyerId { get; private set; }
+
+    public Buyer Buyer { get; }
+
     // DDD Patterns comment
     // Using a private collection field, better for DDD Aggregate's encapsulation
     // so OrderItems cannot be added from "outside the AggregateRoot" directly to the collection,
@@ -18,7 +25,7 @@ public class Order : AggregateEntity
 
     public IReadOnlyCollection<OrderItem> OrderItems => _orderItems.AsReadOnly();
 
-    public static Result<Order> Create(string description)
+    public static Result<Order> Create(string description, Address address, Guid? buyerId = null)
     {
         // ici les invariants de création : au moins un item, etc.
         var order = new Order
@@ -26,7 +33,9 @@ public class Order : AggregateEntity
             Id = Guid.NewGuid(),
             OrderStatus = OrderStatus.Submitted,
             Description = description,
-            OrderDate = DateTime.UtcNow
+            OrderDate = DateTime.UtcNow,
+            Address = address,
+            BuyerId = buyerId
         };
         return Result<Order>.Success(order);
     }

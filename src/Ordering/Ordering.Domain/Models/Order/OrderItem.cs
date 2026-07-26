@@ -16,11 +16,13 @@ public class OrderItem : Entity
 
     public int Units { get; private set; }
 
-    public int ProductId { get; private set; }
+    public Guid ProductId { get; private set; }
+
+    public Guid OrderId { get; }
 
     protected OrderItem() { }
 
-    public static Result<OrderItem> Create(int productId, string productName, decimal unitPrice, decimal discount, string pictureUrl, int units = 1)
+    public static Result<OrderItem> Create(Guid productId, string productName, decimal unitPrice, decimal discount, string pictureUrl, int units = 1)
     {
         if (units <= 0)
         {
@@ -31,6 +33,7 @@ public class OrderItem : Entity
         {
             return Result<OrderItem>.Failure("The total of order item is lower than applied discount");
         }
+
         OrderItem orderItem = new()
         {
 
