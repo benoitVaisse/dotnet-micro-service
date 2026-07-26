@@ -8,14 +8,15 @@ internal class BuyerEntityTypeConfiguration : IEntityTypeConfiguration<Buyer>
 {
     public void Configure(EntityTypeBuilder<Buyer> builder)
     {
-        builder.ToTable("buyer");
+        builder.ToTable("buyers");
 
         builder.HasKey(b => b.Id);
 
+        builder.Property(b => b.Id).HasColumnName("id");
+
         builder.Property(b => b.Name)
+            .HasColumnName("name")
             .IsRequired()
             .HasMaxLength(200);
-
-
     }
 }

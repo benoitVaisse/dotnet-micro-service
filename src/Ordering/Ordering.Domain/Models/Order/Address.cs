@@ -8,9 +8,7 @@ public record Address
     public string Country { get; }
     public string ZipCode { get; }
 
-    private Address() { }  // pour EF
-
-    private Address(string street, string city, string? state, string country, string zipCode)
+    private Address(string street, string city, string country, string zipCode, string? state)
     {
         Street = street;
         City = city;
@@ -19,8 +17,9 @@ public record Address
         ZipCode = zipCode;
     }
 
-    public static Result<Address> Create(string street, string city, string? state, string country, string zipCode)
+    public static Result<Address> Create(string street, string city, string country, string zipCode, string? state)
     {
+
         if (string.IsNullOrWhiteSpace(street))
             return Result<Address>.Failure("Street cannot be empty");
         if (string.IsNullOrWhiteSpace(city))
@@ -30,6 +29,6 @@ public record Address
         if (string.IsNullOrWhiteSpace(zipCode))
             return Result<Address>.Failure("ZipCode cannot be empty");
 
-        return Result<Address>.Success(new Address(street, city, state, country, zipCode));
+        return Result<Address>.Success(new Address(street, city, country, zipCode, state));
     }
 }

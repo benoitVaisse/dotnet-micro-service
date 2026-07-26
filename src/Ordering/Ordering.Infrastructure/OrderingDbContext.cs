@@ -6,13 +6,11 @@ using Ordering.Infrastructure.Data.Ordering.Configurations;
 
 namespace Ordering.Infrastructure;
 
-public class OrderingDbContext : DbContext
+public class OrderingDbContext(DbContextOptions<OrderingDbContext> options) : DbContext(options)
 {
     public DbSet<Order> Orders => Set<Order>();
     public DbSet<OrderItem> OrderItems => Set<OrderItem>();
     public DbSet<Buyer> Buyers => Set<Buyer>();
-
-    public OrderingDbContext(DbContextOptions<OrderingDbContext> options) : base(options) { }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

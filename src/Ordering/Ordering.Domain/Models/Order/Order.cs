@@ -62,7 +62,7 @@ public class Order : AggregateEntity
     // This Order AggregateRoot's method "AddOrderItem()" should be the only way to add Items to the Order,
     // so any behavior (discounts, etc.) and validations are controlled by the AggregateRoot 
     // in order to maintain consistency between the whole Aggregate. 
-    public Result AddOrderItem(int productId, string productName, decimal unitPrice, decimal discount, string pictureUrl, int units = 1)
+    public Result AddOrderItem(Guid productId, string productName, decimal unitPrice, decimal discount, string pictureUrl, int units = 1)
     {
         //add validated new order item
         Result<OrderItem> orderItemResult = OrderItem.Create(productId, productName, unitPrice, discount, pictureUrl, units);
