@@ -1,6 +1,6 @@
 services:
   catalog-db:
-    image: postgres:17
+    image: postgres:18
     container_name: catalog-db
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
@@ -10,6 +10,18 @@ services:
       - "5432:5432"
     volumes:
       - catalog-db-data:/var/lib/postgresql/data
+  ordering-db:
+    image: postgres:18
+    container_name: ordering-db
+    environment:
+      POSTGRES_USER: ${ORDERING_POSTGRES_USER}
+      POSTGRES_PASSWORD: ${ORDERING_POSTGRES_PASSWORD}
+      POSTGRES_DB: ${ORDERING_POSTGRES_DB}
+    ports:
+      - "5433:5432"
+    volumes:
+      - ordering-db-data:/var/lib/postgresql/data
 
 volumes:
   catalog-db-data:
+  ordering-db-data:
